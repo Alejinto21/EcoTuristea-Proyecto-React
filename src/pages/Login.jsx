@@ -13,9 +13,9 @@ export default function Login() {
 
   return (
     <div className='flex min-h-screen'>
-      {/* Contenedor de la izquierda */}
+
       <div className='w-full md:w-1/2 flex flex-col justify-center items-center'>
-        <nav className='bg-slate-100 text-black p-4 w-full flex-shrink-0 items-center'>
+        <nav className='bg-slate-100 text-black p-4 w-full flex-shrink-0 items-center flex'>
           <img src={logo} className='w-12 rounded-full mr-4' alt="Logo" />
           <h1 className='text-3xl font-semibold'>EcoTuristea</h1>
         </nav>
@@ -62,7 +62,7 @@ export default function Login() {
         </div>
       </div>
 
-      {/* Contenedor de la derecha con la imagen */}
+
       <div className='hidden md:hidden lg:block lg:w-1/2'>
         <img 
           src={login}

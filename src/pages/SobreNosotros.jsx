@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/exploraMasSitios.css';
-import montana from '../assets/medellin.webp';
+import montana from '../assets/medellin.jpg';
 
 export default function SobreNosotros() {
   const navigate = useNavigate();
