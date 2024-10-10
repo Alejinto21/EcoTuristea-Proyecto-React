@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import '../styles/exploraMasSitios.css';
 import 'boxicons/css/boxicons.min.css';
-import medellin from '../assets/medellin.webp';
+import medellin from '../assets/medellin.jpg';
 import MuseoCastillo from '../assets/museoElCastillo.webp';
 import ParqueArvi from '../assets/ParqueArvi.jpg';
 import ParqueExplora from '../assets/ParqueExplora.webp';

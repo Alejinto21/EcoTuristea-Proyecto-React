@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import 'boxicons/css/boxicons.min.css';
 import '../styles/PaginaPrincipal.css';
-import medellin from '../assets/medellin.webp';
+import medellin from '../assets/medellin.jpg';
 import { useNavigate } from 'react-router-dom';
 
 export default function PaginaPrincipal() {
