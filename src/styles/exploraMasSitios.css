@@ -134,7 +134,9 @@ ul,
 .plazaBotero,
 .jardinBotanico,
 .cerro,
-.cueva {
+.cueva,
+.pueblito,
+.planetario {
     display: flex;
     justify-content: center;
     margin: 10px 0;
@@ -147,7 +149,9 @@ ul,
 .desPlazaBotero,
 .JardinBotanico,
 .desCerro,
-.desCueva {
+.desCueva,
+.desPueblito,
+.desPlanetario {
     display: flex;
     margin: 5px 0;
     font-size: 12px;
@@ -160,7 +164,9 @@ ul,
 .btnPlazaBotero,
 .btnJardinBotanico,
 .btnCerro,
-.btnCueva {
+.btnCueva,
+.btnPueblito,
+.btnPlanetario {
     display: flex;
     justify-content: center;
 }
@@ -171,7 +177,9 @@ ul,
 .masInfoPlazaBotero,
 .masInfoJardinBotanico,
 .masInfoCerro,
-.masInfoCueva {
+.masInfoCueva,
+.masInfoPueblito,
+.masInfoPlanetario {
     width: 100%;
     background-color: green;
     height: 40px;
@@ -247,4 +255,12 @@ ul,
 .footer-links li {
     display: inline;
     margin: 0;
+}
+.volver{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 20px;   
+}
+.volver:hover{
+    color: gray;
 }

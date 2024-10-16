@@ -67,7 +67,7 @@ export default function Login() {
         <img 
           src={login}
           alt="Imagen descriptiva" 
-          className='w-full h-full object-cover'
+          className='w-full h-full object-cover '
         />
       </div>
 
