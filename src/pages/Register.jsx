@@ -3,16 +3,16 @@ import Swal from 'sweetalert2';
 import login from '../assets/login.jpeg';
 import logo from '../assets/logo.png';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import { registerUser } from '../services/api'; // Importa la función desde api.js
 
 export default function Register() {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    username: '',
-    name: '',
-    surname: '',
+    id_usuario: '',
+    first_name: '',
+    last_name: '',
     country: '',
-    password: ''
+    contraseña: ''
   });
 
   const handleChange = (e) => {
@@ -25,10 +25,10 @@ export default function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('/api/auth/register', formData);
+      const response = await registerUser(formData);
       Swal.fire({
         title: 'Registro exitoso',
-        text: response.data.message,
+        text: response.message,
         icon: 'success',
         confirmButtonText: 'Aceptar'
       }).then(() => {
@@ -37,7 +37,7 @@ export default function Register() {
     } catch (error) {
       Swal.fire({
         title: 'Error',
-        text: error.response.data.message,
+        text: error.response ? error.response.data.message : 'Algo salió mal',
         icon: 'error',
         confirmButtonText: 'Aceptar'
       });
