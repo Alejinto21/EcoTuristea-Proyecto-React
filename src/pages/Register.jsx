@@ -18,7 +18,7 @@ export default function Register() {
   const handleChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.id]: e.target.value
+      [e.target.name]: e.target.value
     });
   };
 
@@ -58,13 +58,13 @@ export default function Register() {
             <p className='mb-8 text-slate-400 text-center text-xl'>Bienvenido, para continuar digita tus credenciales</p>
             <form className='space-y-6' onSubmit={handleSubmit}>
               <div>
-                <label htmlFor="username" className='block text-gray-700 text-xl mb-2'>Id Usuario</label>
+                <label htmlFor="id_usuario" className='block text-gray-700 text-xl mb-2'>Id Usuario</label>
                 <input
                   type="text"
-                  id="username"
+                  name="id_usuario"
                   className='w-full p-4 border border-gray-300 rounded-lg text-xl'
                   placeholder="Ingresar Usuario"
-                  value={formData.username}
+                  value={formData.id_usuario}
                   onChange={handleChange}
                 />
               </div>
@@ -72,10 +72,10 @@ export default function Register() {
                 <label htmlFor="name" className='block text-gray-700 text-xl mb-2'>Nombre</label>
                 <input
                   type="text"
-                  id="name"
+                  name="first_name"
                   className='w-full p-4 border border-gray-300 rounded-lg text-xl'
                   placeholder="Ingresar Nombre"
-                  value={formData.name}
+                  value={formData.first_name}
                   onChange={handleChange}
                 />
               </div>
@@ -83,10 +83,10 @@ export default function Register() {
                 <label htmlFor="surname" className='block text-gray-700 text-xl mb-2'>Apellido</label>
                 <input
                   type="text"
-                  id="surname"
+                  name="last_name"
                   className='w-full p-4 border border-gray-300 rounded-lg text-xl'
                   placeholder="Ingresar Apellido"
-                  value={formData.surname}
+                  value={formData.last_name}
                   onChange={handleChange}
                 />
               </div>
@@ -94,7 +94,7 @@ export default function Register() {
                 <label htmlFor="country" className='block text-gray-700 text-xl mb-2'>País</label>
                 <input
                   type="text"
-                  id="country"
+                  name="country"
                   className='w-full p-4 border border-gray-300 rounded-lg text-xl'
                   placeholder="Ingresar País"
                   value={formData.country}
@@ -105,10 +105,10 @@ export default function Register() {
                 <label htmlFor="password" className='block text-gray-700 text-xl mb-2'>Contraseña</label>
                 <input
                   type="password"
-                  id="password"
+                  name="contraseña"
                   className='w-full p-4 border border-gray-300 rounded-lg text-xl'
                   placeholder="*********"
-                  value={formData.password}
+                  value={formData.contraseña}
                   onChange={handleChange}
                 />
               </div>
