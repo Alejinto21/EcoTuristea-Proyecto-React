@@ -29,6 +29,8 @@ export default function Login() {
   const handleModalToggle = () => {
     setIsModalOpen(!isModalOpen);
   };
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
 
   return (
     <div className='flex min-h-screen'>

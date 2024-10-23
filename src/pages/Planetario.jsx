@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
-import cerroTresCruces from '../assets/Cerro.jpeg';
-import vistaDesdeCerro from '../CerroDeLasTresCruces/vista.webp';
+import planetario from '../assets/Planetario.jpg';
+import telescopio from '../assets/Telescopio.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
 
-export default function CerroTresCruces() {
-  const [currentImage, setCurrentImage] = useState(cerroTresCruces);
-  const [rating, setRating] = useState(0);
+export default function Planetario() {
+  const [currentImage, setCurrentImage] = useState(planetario);
+  const [rating, setRating] = useState(0); // Define rating state
   const navigate = useNavigate();
 
-  const images = [cerroTresCruces, vistaDesdeCerro];
+  const images = [planetario, telescopio]; // Array of images
   const showImage = (index) => setCurrentImage(images[index]);
 
   return (
@@ -18,8 +18,8 @@ export default function CerroTresCruces() {
       <nav className='navE'>
         <h1 className='Eco'>EcoTuristea</h1>
         <ul>
-          <li className='inicio1' onClick={() => navigate('/exploraMasSitios')}>Inicio</li>
-          <li className='sobreNosotros2' onClick={() => navigate('/sobreNosotros')}>Sobre Nosotros</li>
+          <li className='inicio1' onClick={()=> navigate ('/exploraMasSitios')}>Inicio</li>
+          <li className='sobreNosotros2' onClick={()=> navigate ('/sobreNosotros')}>Sobre Nosotros</li>
           <li className='Tema3'>Tema</li>
         </ul>
         <div className='salir'>
@@ -30,38 +30,33 @@ export default function CerroTresCruces() {
 
       <div className='relative mb-12'>
         <img 
-          src={cerroTresCruces}
-          alt="Cerro de las Tres Cruces Hero"
+          src={planetario}
+          alt="Planetario de Medellín"
           className='h-96 w-full object-cover brightness-50 rounded-lg shadow-lg'
         />
         <h1 className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-6xl font-extrabold bg-black bg-opacity-60 p-6 rounded-lg shadow-2xl cursor-default'>
-          Cerro de las Tres Cruces
+          Planetario de Medellín
         </h1>
       </div>
 
       <section id="main-content" className='flex flex-col md:flex-row gap-6 mb-12'>
         <div className='flex-1 p-6 bg-white rounded-lg shadow-lg'>
-          <h2 className='text-4xl font-bold mb-6 text-gray-800 cursor-default'>Descubre el Cerro de las Tres Cruces</h2>
+          <h2 className='text-4xl font-bold mb-6 text-gray-800 cursor-default'>Descubre el Planetario de Medellín</h2>
           <p className='text-lg text-gray-700 leading-relaxed'>
-            El Cerro de las Tres Cruces es un lugar icónico en Medellín, conocido por sus impresionantes vistas 
-            de la ciudad. Este cerro es popular entre los senderistas y aquellos que buscan un momento de paz 
-            en medio de la naturaleza.
+            El Planetario de Medellín es un espacio fascinante dedicado a la divulgación científica y a la observación del cosmos. Aquí encontrarás diversas actividades que hacen de este lugar un destino imperdible para los amantes de la ciencia y el espacio.
             <br /><br />
-            <strong className='text-blue-700'>Senderismo:</strong> La caminata hacia la cima es un reto que 
-            recompensa a los aventureros con panoramas espectaculares de Medellín y sus alrededores.
+            <strong className='text-blue-700'>Exposiciones Interactivas:</strong> Disfruta de exhibiciones que te sumergirán en el fascinante mundo del universo, desde el sistema solar hasta los misterios del espacio profundo.
             <br /><br />
-            <strong className='text-blue-700'>Cruz de la Cima:</strong> En la cima se encuentra una gran cruz 
-            que se ha convertido en un símbolo de fe y esperanza para los habitantes de la ciudad.
+            <strong className='text-blue-700'>Funciones de Planetario:</strong> Vive experiencias inmersivas en la sala de proyección, donde podrás observar el cielo estrellado y aprender sobre los astros.
             <br /><br />
-            <strong className='text-blue-700'>Naturaleza:</strong> Rodeado de vegetación y aves, el cerro es 
-            perfecto para disfrutar de la biodiversidad de la región.
+            <strong className='text-blue-700'>Talleres y Charlas:</strong> Participa en actividades educativas diseñadas para todas las edades que fomentan la curiosidad y el conocimiento sobre el universo.
           </p>
         </div>
 
         <div className='flex-1 p-6 relative'>
           <img 
             src={currentImage}
-            alt="Cerro de las Tres Cruces"
+            alt="Planetario"
             className='w-full h-auto rounded-lg shadow-2xl transition-transform transform hover:scale-105'
           />
 
@@ -126,7 +121,7 @@ export default function CerroTresCruces() {
             <textarea 
               id="message" 
               rows="4" 
-              className='w-fuwll p-3 border rounded-lg'
+              className='w-full p-3 border rounded-lg'
               placeholder="Tu mensaje"
             ></textarea>
           </div>
