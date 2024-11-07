@@ -3,11 +3,14 @@ import login from '../assets/login.jpeg';
 import logo from '../assets/logo.png';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import Swal from 'sweetalert2'; // Importar SweetAlert2
+import { FaEye, FaEyeSlash } from 'react-icons/fa'; // Importar iconos
 
 export default function Login() {
   const [id_usuario, setId_usuario] = useState('');
   const [contraseña, setContraseña] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [showPassword, setShowPassword] = useState(false); // Estado para mostrar/ocultar la contraseña
   const navigate = useNavigate();
 
   // Función para manejar el envío del formulario
@@ -18,10 +21,27 @@ export default function Login() {
     axios.post('http://localhost:3000/api/users/login', { id_usuario, contraseña })
       .then((res) => {
         console.log('Inicio de sesión exitoso:', res);
-        navigate("/paginaPrincipal"); // Navega a la página principal
+
+        // Mostrar SweetAlert de éxito
+        Swal.fire({
+          title: 'Inicio de sesión exitoso',
+          text: 'Has iniciado sesión correctamente.',
+          icon: 'success',
+          confirmButtonText: 'Aceptar'
+        }).then(() => {
+          navigate("/paginaPrincipal"); // Navega a la página principal
+        });
       })
       .catch((err) => {
         console.error('Error en el inicio de sesión:', err);
+
+        // Mostrar SweetAlert de error
+        Swal.fire({
+          title: 'Error',
+          text: 'Error en el inicio de sesión. Intenta de nuevo.',
+          icon: 'error',
+          confirmButtonText: 'Aceptar'
+        });
       });
   };
 
@@ -29,8 +49,14 @@ export default function Login() {
   const handleModalToggle = () => {
     setIsModalOpen(!isModalOpen);
   };
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+
+  // Función para alternar mostrar/ocultar la contraseña
+  const toggleShowPassword = () => {
+    setShowPassword(!showPassword);
+  };
+
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   return (
     <div className='flex min-h-screen'>
@@ -55,20 +81,25 @@ export default function Login() {
                   placeholder="Ingresar ID usuario"
                   required
                   value={id_usuario}
-                  onChange={(e) => setId_usuario(e.target.value)} //Actualiza el estado cuando cambia el valor de entrada
+                  onChange={(e) => setId_usuario(e.target.value)} // Actualiza el estado cuando cambia el valor de entrada
                 />
               </div>
               <div>
                 <label htmlFor="password" className='block text-gray-700 text-xl mb-2'>Contraseña</label>
-                <input 
-                  type="password" 
-                  id="password" 
-                  className='w-full p-4 border border-gray-300 rounded-lg text-xl'
-                  placeholder="Ingresar contraseña"
-                  required
-                  value={contraseña}
-                  onChange={(e) => setContraseña(e.target.value)} //Actualiza el estado cuando cambia el valor de entrada
-                />
+                <div className='relative'>
+                  <input 
+                    type={showPassword ? "text" : "password"} 
+                    id="password" 
+                    className='w-full p-4 border border-gray-300 rounded-lg text-xl'
+                    placeholder="Ingresar contraseña"
+                    required
+                    value={contraseña}
+                    onChange={(e) => setContraseña(e.target.value)} // Actualiza el estado cuando cambia el valor de entrada
+                  />
+                  <div className='absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer' onClick={toggleShowPassword}>
+                    {showPassword ? <FaEyeSlash /> : <FaEye />}
+                  </div>
+                </div>
               </div>
               <p className='text-xs text-right cursor-pointer' onClick={handleModalToggle}>¿Olvidaste la contraseña?</p>
               <button 
@@ -85,14 +116,13 @@ export default function Login() {
               {isModalOpen && (
                 <div className="modal">
                   <p>Este es un modal</p>
-                <button onClick={handleModalToggle}>Cerrar Modal</button>
+                  <button onClick={handleModalToggle}>Cerrar Modal</button>
                 </div>
               )}
             </form>
           </div>
         </div>
       </div>
-
 
       <div className='hidden md:hidden lg:block lg:w-1/2'>
         <img 
