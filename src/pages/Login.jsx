@@ -18,7 +18,7 @@ export default function Login() {
     event.preventDefault(); // Previene el comportamiento por defecto del formulario
 
     // Realiza la solicitud de inicio de sesión
-    axios.post('http://localhost:3000/api/users/login', { id_usuario, contraseña })
+    axios.post('http://localhost:3000/api/users/login', { id_usuario, contraseña }) // Asegurarse de enviar la contraseña en texto plano
       .then((res) => {
         console.log('Inicio de sesión exitoso:', res);
 
@@ -62,22 +62,22 @@ export default function Login() {
     <div className='flex min-h-screen'>
 
       <div className='w-full md:w-1/2 flex flex-col justify-center items-center'>
-        <nav className='bg-slate-100 text-black p-4 w-full flex-shrink-0 items-center flex'>
-          <img src={logo} className='w-12 rounded-full mr-4' alt="Logo" />
-          <h1 className='text-3xl font-semibold'>EcoTuristea</h1>
-        </nav>
+      <nav className="bg-slate-100 text-black p-4 w-full fixed top-0 left-0 flex items-center">
+        <img src={logo} className="w-10 rounded-full mr-4" alt="Logo" />
+        <h1 className="text-2xl font-semibold">EcoTuristea</h1>
+      </nav>
 
         <div className='flex-1 flex items-center justify-center bg-green- p-8 w-full'>
           <div className='max-w-md w-full'>
-            <h2 className='text-5xl font-bold text-gray-800 mb-6 text-center'>Iniciar Sesión</h2>
-            <p className='mb-8 text-slate-400 text-center text-xl'>Bienvenido, para continuar digita tus credenciales</p>
-            <form className='space-y-6' onSubmit={handleSubmit}>
+            <h2 className='text-4xl font-bold text-gray-800 mb-6 text-center'>Iniciar Sesión</h2> 
+            <p className='mb-8 text-slate-400 text-center text-lg'>Bienvenido, para continuar digita tus credenciales</p> 
+            <form className='space-y-4' onSubmit={handleSubmit}> 
               <div>
-                <label htmlFor="id usuario" className='block text-gray-700 text-xl mb-2'>ID Usuario</label>
+                <label htmlFor="id usuario" className='block text-gray-700 text-lg mb-2'>ID Usuario</label>
                 <input 
                   type="text" 
                   id="username" 
-                  className='w-full p-4 border border-gray-300 rounded-lg text-xl'
+                  className='w-full p-2 border border-gray-300 rounded-lg text-lg' 
                   placeholder="Ingresar ID usuario"
                   required
                   value={id_usuario}
@@ -85,12 +85,12 @@ export default function Login() {
                 />
               </div>
               <div>
-                <label htmlFor="password" className='block text-gray-700 text-xl mb-2'>Contraseña</label>
+                <label htmlFor="password" className='block text-gray-700 text-lg mb-2'>Contraseña</label> 
                 <div className='relative'>
                   <input 
                     type={showPassword ? "text" : "password"} 
                     id="password" 
-                    className='w-full p-4 border border-gray-300 rounded-lg text-xl'
+                    className='w-full p-2 border border-gray-300 rounded-lg text-lg' 
                     placeholder="Ingresar contraseña"
                     required
                     value={contraseña}
@@ -103,32 +103,25 @@ export default function Login() {
               </div>
               <p className='text-xs text-right cursor-pointer' onClick={handleModalToggle}>¿Olvidaste la contraseña?</p>
               <button 
-                className='px-8 bg-blue-600 text-white rounded-lg shadow-lg hover:bg-blue-700 transition text-xl w-full h-14' 
+                className='px-6 bg-blue-600 text-white rounded-lg shadow-lg hover:bg-blue-700 transition text-lg w-full h-10' // Tamaño reducido
                 type="submit"                 
               >
                 Iniciar Sesión
               </button>
               <div className='flex items-center justify-center'>
-                <p className='text-sm flex justify-center mr-1 text-gray-500 cursor-default'>¿No tienes cuenta?</p>
-                <p className='text-sm text-blue-900 cursor-pointer' onClick={() => navigate("/register")}>Regístrate</p>
+                <p className='text-xs flex justify-center mr-1 text-gray-500 cursor-default'>¿No tienes cuenta?</p>
+                <p className='text-xs text-blue-900 cursor-pointer' onClick={() => navigate("/register")}>Regístrate</p> 
               </div>
-              {/* Modal */}
-              {isModalOpen && (
-                <div className="modal">
-                  <p>Este es un modal</p>
-                  <button onClick={handleModalToggle}>Cerrar Modal</button>
-                </div>
-              )}
             </form>
           </div>
         </div>
       </div>
 
-      <div className='hidden md:hidden lg:block lg:w-1/2'>
+      <div className='hidden md:hidden lg:block lg:w-1/2'> 
         <img 
           src={login}
           alt="Imagen descriptiva" 
-          className='w-full h-full object-cover '
+          className='w-full h-full object-contain ' // Ajuste de imagen
         />
       </div>
 
@@ -136,12 +129,14 @@ export default function Login() {
       {isModalOpen && (
         <div className='fixed inset-0 flex items-center justify-center bg-black bg-opacity-50'>
           <div className='bg-white p-6 rounded-lg shadow-lg max-w-sm w-full'>
-            <h2 className='text-xl font-bold mb-4'>Recuperar Contraseña</h2>
+            <h2 className='text-lg font-bold mb-4'>Recuperar Contraseña</h2> 
             <p className='mb-4'>Ingresa tu correo electrónico para recibir instrucciones sobre cómo recuperar tu contraseña.</p>
             <input 
               type="email" 
               className='w-full p-2 border border-gray-300 rounded-lg mb-4'
               placeholder="Correo electrónico"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)} // Actualiza el estado cuando cambia el valor de entrada
             />
             <div className='flex justify-end'>
               <button 
