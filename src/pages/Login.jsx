@@ -2,14 +2,35 @@ import React, { useState } from 'react';
 import login from '../assets/login.jpeg';
 import logo from '../assets/logo.png';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 export default function Login() {
+  const [id_usuario, setId_usuario] = useState('');
+  const [contraseña, setContraseña] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const navigate = useNavigate();
 
+  // Función para manejar el envío del formulario
+  const handleSubmit = (event) => {
+    event.preventDefault(); // Previene el comportamiento por defecto del formulario
+
+    // Realiza la solicitud de inicio de sesión
+    axios.post('http://localhost:3000/api/users/login', { id_usuario, contraseña })
+      .then((res) => {
+        console.log('Inicio de sesión exitoso:', res);
+        navigate("/paginaPrincipal"); // Navega a la página principal
+      })
+      .catch((err) => {
+        console.error('Error en el inicio de sesión:', err);
+      });
+  };
+
+  // Función para alternar el modal
   const handleModalToggle = () => {
     setIsModalOpen(!isModalOpen);
   };
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
 
   return (
     <div className='flex min-h-screen'>
@@ -24,15 +45,17 @@ export default function Login() {
           <div className='max-w-md w-full'>
             <h2 className='text-5xl font-bold text-gray-800 mb-6 text-center'>Iniciar Sesión</h2>
             <p className='mb-8 text-slate-400 text-center text-xl'>Bienvenido, para continuar digita tus credenciales</p>
-            <form className='space-y-6'>
+            <form className='space-y-6' onSubmit={handleSubmit}>
               <div>
-                <label htmlFor="username" className='block text-gray-700 text-xl mb-2'>Usuario</label>
+                <label htmlFor="id usuario" className='block text-gray-700 text-xl mb-2'>ID Usuario</label>
                 <input 
                   type="text" 
                   id="username" 
                   className='w-full p-4 border border-gray-300 rounded-lg text-xl'
-                  placeholder="Ingresar usuario"
+                  placeholder="Ingresar ID usuario"
                   required
+                  value={id_usuario}
+                  onChange={(e) => setId_usuario(e.target.value)} //Actualiza el estado cuando cambia el valor de entrada
                 />
               </div>
               <div>
@@ -43,13 +66,14 @@ export default function Login() {
                   className='w-full p-4 border border-gray-300 rounded-lg text-xl'
                   placeholder="Ingresar contraseña"
                   required
+                  value={contraseña}
+                  onChange={(e) => setContraseña(e.target.value)} //Actualiza el estado cuando cambia el valor de entrada
                 />
               </div>
               <p className='text-xs text-right cursor-pointer' onClick={handleModalToggle}>¿Olvidaste la contraseña?</p>
               <button 
                 className='px-8 bg-blue-600 text-white rounded-lg shadow-lg hover:bg-blue-700 transition text-xl w-full h-14' 
-                type="submit" 
-                onClick={() => navigate("/paginaPrincipal")}
+                type="submit"                 
               >
                 Iniciar Sesión
               </button>
@@ -57,6 +81,13 @@ export default function Login() {
                 <p className='text-sm flex justify-center mr-1 text-gray-500 cursor-default'>¿No tienes cuenta?</p>
                 <p className='text-sm text-blue-900 cursor-pointer' onClick={() => navigate("/register")}>Regístrate</p>
               </div>
+              {/* Modal */}
+              {isModalOpen && (
+                <div className="modal">
+                  <p>Este es un modal</p>
+                <button onClick={handleModalToggle}>Cerrar Modal</button>
+                </div>
+              )}
             </form>
           </div>
         </div>
@@ -67,7 +98,7 @@ export default function Login() {
         <img 
           src={login}
           alt="Imagen descriptiva" 
-          className='w-full h-full object-cover'
+          className='w-full h-full object-cover '
         />
       </div>
 
