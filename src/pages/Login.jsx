@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
-import Swal from 'sweetalert2';
 import login from '../assets/login.jpeg';
 import logo from '../assets/logo.png';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Swal from 'sweetalert2'; // Importar SweetAlert2
 import { FaEye, FaEyeSlash } from 'react-icons/fa'; // Importar iconos
+
 
 export default function Login() {
   const [id_usuario, setId_usuario] = useState('');
