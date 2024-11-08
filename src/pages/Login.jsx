@@ -69,9 +69,9 @@ export default function Login() {
 
         <div className='flex-1 flex items-center justify-center bg-green- p-8 w-full'>
           <div className='max-w-md w-full'>
-            <h2 className='text-4xl font-bold text-gray-800 mb-6 text-center'>Iniciar Sesión</h2> 
-            <p className='mb-8 text-slate-400 text-center text-lg'>Bienvenido, para continuar digita tus credenciales</p> 
-            <form className='space-y-4' onSubmit={handleSubmit}> 
+            <h2 className='text-3xl font-bold text-gray-800 mb-6 text-center'>Iniciar Sesión</h2> 
+            <p className='mb-5 text-slate-400 text-center text-lg'>Bienvenido, para continuar digita tus credenciales</p> 
+            <form className='space-y-3' onSubmit={handleSubmit}> 
               <div>
                 <label htmlFor="id usuario" className='block text-gray-700 text-lg mb-2'>ID Usuario</label>
                 <input 
@@ -102,9 +102,8 @@ export default function Login() {
                 </div>
               </div>
               <p className='text-xs text-right cursor-pointer' onClick={handleModalToggle}>¿Olvidaste la contraseña?</p>
-              <button 
-                className='px-6 bg-blue-600 text-white rounded-lg shadow-lg hover:bg-blue-700 transition text-lg w-full h-10' // Tamaño reducido
-                type="submit"                 
+              <button className="col-span-2 px-6 py-2 bg-[#2b9e4e] text-white rounded-lg shadow-md hover:bg-[#66cc75] hover:text-[#212121] hover:font-bold hover:shadow-md hover:shadow-[#66cc75] transition-all duration-300 ease-in-out text-sm w-full h-10"
+                  type="submit"               
               >
                 Iniciar Sesión
               </button>
@@ -116,12 +115,11 @@ export default function Login() {
           </div>
         </div>
       </div>
-
-      <div className='hidden md:hidden lg:block lg:w-1/2'> 
-        <img 
+      <div className='flex items-center justify-center h-screen'>
+        <img
           src={login}
-          alt="Imagen descriptiva" 
-          className='w-full h-full object-contain ' // Ajuste de imagen
+          alt="Imagen descriptiva"
+          className='w-full h-[74vh] object-cover object-center  rounded-l-3xl shadow-lg'  
         />
       </div>
 
