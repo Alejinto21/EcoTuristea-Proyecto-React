@@ -31,10 +31,11 @@
 .navE {
     width: 100%;
     height: 7vh;
-    background-color: green;
+    background: linear-gradient(135deg, #005200, #0db90d);
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border-radius: 8px;
 }
 
 .salir {
