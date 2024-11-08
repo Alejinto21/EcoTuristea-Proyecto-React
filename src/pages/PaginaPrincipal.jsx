@@ -3,6 +3,7 @@ import 'boxicons/css/boxicons.min.css';
 import '../styles/PaginaPrincipal.css';
 import medellin from '../assets/medellin.jpg';
 import { useNavigate } from 'react-router-dom';
+import NavBar from '../components/NavBar';
 
 export default function PaginaPrincipal() {
   const [themeVisible, setThemeVisible] = useState(false);
@@ -14,32 +15,7 @@ export default function PaginaPrincipal() {
 
   return (
     <div>
-      <nav className='navE'>
-        <h1 className='Eco'>EcoTuristea</h1>
-        <ul>
-          <li className='inicio1'>Inicio</li>
-          <li className='sobreNosotros2' onClick={() => navigate("/sobreNosotros")}>Sobre Nosotros</li>
-          <li className='Tema3'>
-            Tema
-            <span onClick={toggleThemeIcons} style={{ marginLeft: '5px', cursor: 'pointer' }}>
-              <i className='bx bx-chevron-down'></i>
-            </span>
-      
-            {themeVisible && (
-              <div className='theme-icons'>
-                <i className='bx bxs-sun' style={{ fontSize: '20px', marginLeft: '10px' }}></i>
-                <i className='bx bxs-moon' style={{ fontSize: '20px', marginLeft: '5px' }}></i>
-              </div>
-            )}
-          </li>
-
-        </ul>
-        
-        <div className='salir' onClick={() => navigate("/login")}>
-          <i className='bx bx-exit'></i>
-          <p>Salir</p>
-        </div>
-      </nav>
+      <NavBar />
       <section className="intro-section">
         <div className="intro">
           <img className='medellin' src={medellin} alt="Vista de Medellín" />

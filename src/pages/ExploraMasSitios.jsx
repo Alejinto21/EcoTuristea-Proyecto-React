@@ -13,6 +13,7 @@ import Cueva from '../assets/Cueva.webp';
 import { useNavigate } from 'react-router-dom';
 import PueblitoPaisa from '../assets/imgPueblito.jpg'; // Asegúrate de que la ruta sea correcta
 import Planetario from '../assets/Planetario.jpg'; // Ajusta la ruta según la ubicación de tu imagen
+import NavBar from '../components/NavBar';
 
 
 export default function ExploraMasSitios() {
@@ -30,29 +31,7 @@ export default function ExploraMasSitios() {
 
   return (
     <div>
-      <nav className='navE'>
-        <h1 className='Eco'>EcoTuristea</h1>
-        <ul>
-          <li className='inicio1' onClick={() => navigate("/paginaPrincipal")}>Inicio</li>
-          <li className='sobreNosotros2' onClick={() => navigate("/sobreNosotros")}>Sobre Nosotros</li>
-          <li className='Tema3'>
-            Tema
-            <span onClick={toggleThemeIcons} style={{ marginLeft: '5px', cursor: 'pointer' }}>
-              <i className='bx bx-chevron-down'></i>
-            </span>
-            {themeVisible && (
-              <div className='theme-icons'>
-                <i className='bx bxs-sun' style={{ fontSize: '20px', marginLeft: '10px' }}></i>
-                <i className='bx bxs-moon' style={{ fontSize: '20px', marginLeft: '5px' }}></i>
-              </div>
-            )}
-          </li>
-        </ul>
-        <div className='salir' onClick={() => navigate("/login")}>
-          <i className='bx bx-exit'></i>
-          <p>Salir</p>
-        </div>
-      </nav>
+      <NavBar />
 
       <section>
         <img className='medellin' src={medellin} alt="" />

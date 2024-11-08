@@ -11,7 +11,7 @@ export default function ImageSlider({ images, currentImage, setCurrentImage }) {
             <img
                 src={currentImage}
                 alt="currentImage"
-                className='w-full h-auto rounded-lg shadow-2xl transition-transform transform hover:scale-105'
+                className='w-full h-96 object-cover rounded-lg shadow-2xl transition-transform transform hover:scale-105'
             />
             <div className='absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-4'>
                 <button onClick={() => showImage(0)} className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-gradient-to-r from-green-700 to-green-500 text-white p-3 rounded-full shadow-lg hover:bg-green-600 hover:shadow-xl transition flex items-center justify-center"
