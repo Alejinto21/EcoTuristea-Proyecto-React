@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import cuevaEsplendor from '../assets/Cueva.webp';
 import interiorCueva from '../CuevaEsplendor/Interior.jpeg';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
 import NavBar from '../components/NavBar';
 import ImageSlider from '../components/ImageSlider';

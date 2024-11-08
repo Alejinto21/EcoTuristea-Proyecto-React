@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import jardinBotanico from '../JardinBotanico/JardinBotanico.avif';
 import plantas from '../JardinBotanico/Flor1.jpg';
-
-import { useNavigate } from 'react-router-dom';
 import NavBar from '../components/NavBar';
 import ImageSlider from '../components/ImageSlider';
 import Rating from '../components/Rating';
