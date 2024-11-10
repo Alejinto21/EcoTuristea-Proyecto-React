@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
 import cerroTresCruces from '../assets/Cerro.jpeg';
 import vistaDesdeCerro from '../CerroDeLasTresCruces/vista.webp';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
-import { useNavigate } from 'react-router-dom';
 import NavBar from '../components/NavBar';
 import ImageSlider from '../components/ImageSlider';
 import Rating from '../components/Rating';
