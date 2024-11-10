@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for ContactForm.jsx</title>
+    <title>Code coverage report for ImageSlider.jsx</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="prettify.css" />
     <link rel="stylesheet" href="base.css" />
@@ -19,34 +19,34 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="index.html">All files</a> ContactForm.jsx</h1>
+        <h1><a href="index.html">All files</a> ImageSlider.jsx</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">90% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>1/1</span>
+                <span class='fraction'>9/10</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">75% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/0</span>
+                <span class='fraction'>3/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/1</span>
+                <span class='fraction'>4/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>1/1</span>
+                <span class='fraction'>7/7</span>
             </div>
         
             
@@ -109,12 +109,28 @@
 <a name='L44'></a><a href='#L44'>44</a>
 <a name='L45'></a><a href='#L45'>45</a>
 <a name='L46'></a><a href='#L46'>46</a>
-<a name='L47'></a><a href='#L47'>47</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L47'></a><a href='#L47'>47</a>
+<a name='L48'></a><a href='#L48'>48</a>
+<a name='L49'></a><a href='#L49'>49</a>
+<a name='L50'></a><a href='#L50'>50</a>
+<a name='L51'></a><a href='#L51'>51</a>
+<a name='L52'></a><a href='#L52'>52</a>
+<a name='L53'></a><a href='#L53'>53</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -151,57 +167,59 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from 'react';
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 &nbsp;
-export default function ContactForm() {
+export default function ImageSlider({ images, currentImage, setCurrentImage }) {
+    const currentIndex = images.indexOf(currentImage);
+&nbsp;
+    const showImage = (index) =&gt; {
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (index &lt; 0 || index &gt;= images.length) <span class="cstat-no" title="statement not covered" >return;</span>
+        setCurrentImage(images[index]);
+    };
+&nbsp;
+    const showNextImage = () =&gt; showImage((currentIndex + 1) % images.length); // Mueve a la siguiente imagen
+    const showPrevImage = () =&gt; showImage((currentIndex - 1 + images.length) % images.length); // Mueve a la imagen anterior
+&nbsp;
     return (
-        &lt;section id="contact" className='bg-green-200 p-6 rounded-lg shadow-lg mt-12'&gt;
-        &lt;h2 className='text-3xl font-bold text-gray-800 mb-6'&gt;Contáctanos&lt;/h2&gt;
-        &lt;p className='text-lg text-gray-700 mb-4'&gt;
-            Si tienes alguna pregunta o deseas más información, no dudes en ponerte en contacto con nosotros.
-        &lt;/p&gt;
-        &lt;form className='space-y-4'&gt;
-            &lt;div&gt;
-            &lt;label htmlFor="name" className='block text-gray-700'&gt;Nombre&lt;/label&gt;
-            &lt;input 
-                type="text" 
-                id="name" 
-                className='w-full p-3 border rounded-lg'
-                placeholder="Tu nombre"
+        &lt;div className="relative p-6"&gt;
+            &lt;img
+                src={currentImage}
+                alt="currentImage"
+                className="w-full h-96 object-cover rounded-lg shadow-2xl transition-transform transform hover:scale-105"
             /&gt;
+            &lt;div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-4"&gt;
+                {/* Botón izquierdo */}
+                &lt;button
+                    onClick={showPrevImage}
+                    aria-label="arrow left"
+                    className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-gradient-to-r from-green-700 to-green-500 text-white p-3 rounded-full shadow-lg hover:bg-green-600 hover:shadow-xl transition flex items-center justify-center"
+                    style={{
+                        boxShadow:
+                            "0 0 10px rgba(72, 209, 204, 0.6), 0 0 20px rgba(72, 209, 204, 0.6)"
+                    }}
+                &gt;
+                    &lt;FontAwesomeIcon icon={faArrowLeft} className="text-2xl" /&gt;
+                &lt;/button&gt;
+&nbsp;
+                {/* Botón derecho */}
+                &lt;button
+                    onClick={showNextImage}
+                    aria-label="arrow right"
+                    className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-gradient-to-r from-green-700 to-green-500 text-white p-3 rounded-full shadow-lg hover:bg-green-600 hover:shadow-xl transition flex items-center justify-center"
+                    style={{
+                        boxShadow:
+                            "0 0 10px rgba(72, 209, 204, 0.6), 0 0 20px rgba(72, 209, 204, 0.6)"
+                    }}
+                &gt;
+                    &lt;FontAwesomeIcon icon={faArrowRight} className="text-2xl" /&gt;
+                &lt;/button&gt;
             &lt;/div&gt;
-            &lt;div&gt;
-            &lt;label htmlFor="email" className='block text-gray-700'&gt;Correo Electrónico&lt;/label&gt;
-            &lt;input 
-                type="email" 
-                id="email" 
-                className='w-full p-3 border rounded-lg'
-                placeholder="Tu correo electrónico"
-            /&gt;
-            &lt;/div&gt;
-            &lt;div&gt;
-            &lt;label htmlFor="message" className='block text-gray-700'&gt;Mensaje&lt;/label&gt;
-            &lt;textarea 
-                id="message" 
-                rows="4" 
-                className='w-full p-3 border rounded-lg'
-                placeholder="Tu mensaje"
-            &gt;&lt;/textarea&gt;
-            &lt;/div&gt;
-            
-            &lt;button 
-            type="submit" 
-            className='px-6 py-3 bg-green-400 text-green rounded-lg shadow-lg hover:bg-green-500 transition'&gt; 
-            Enviar 
-            &lt;/button&gt;
-        &lt;/form&gt;
-        &lt;/section&gt;
+        &lt;/div&gt;
     );
-}</pre></td></tr></table></pre>
+}
+&nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->
