@@ -2,12 +2,43 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/exploraMasSitios.css';
 import montana from '../assets/medellin.jpg';
+import { addComment } from '../services/api'; // Importa la función desde api.js
 
 export default function SobreNosotros() {
   const navigate = useNavigate();
   const [themeVisible, setThemeVisible] = useState(false); // State for theme visibility
 
   const toggleThemeIcons = () => setThemeVisible(!themeVisible); // Function to toggle theme icons
+
+  const [formData, setFormData] = useState({
+    nombre: '',
+    correo_electronico: '',
+    mensaje: ''
+  });
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.id]: e.target.value
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await addComment(formData);
+      alert(response.message); // Muestra el mensaje de éxito
+      // Opcionalmente, reinicia el formulario después de enviarlo
+      setFormData({
+        nombre: '',
+        correo_electronico: '',
+        mensaje: ''
+      });
+    } catch (error) {
+      console.error('Error al enviar el comentario:', error);
+      alert('Hubo un problema al enviar el comentario.');
+    }
+  };
 
   return (
     <div className='bg-gray-100 min-h-screen p-6'>
@@ -76,34 +107,40 @@ export default function SobreNosotros() {
         <p className='mb-4 text-lg text-gray-700'>
           Si deseas más información sobre nuestros servicios o quieres colaborar con nosotros, no dudes en ponerte en contacto.
         </p>
-        <form className='space-y-4'>
+        <form className='space-y-4' onSubmit={handleSubmit}>
           <div>
-            <label htmlFor="name" className='block text-gray-700 mb-2'>Nombre</label>
+            <label htmlFor="nombre" className='block text-gray-700 mb-2'>Nombre</label>
             <input 
               type="text" 
-              id="name" 
+              id="nombre" 
               className='w-full p-3 border border-gray-300 rounded-lg'
               placeholder="Tu nombre"
+              value={formData.nombre}
+              onChange={handleChange}
               required
             />
           </div>
           <div>
-            <label htmlFor="email" className='block text-gray-700 mb-2'>Correo Electrónico</label>
+            <label htmlFor="correo_electronico" className='block text-gray-700 mb-2'>Correo Electrónico</label>
             <input 
               type="email" 
-              id="email" 
+              id="correo_electronico" 
               className='w-full p-3 border border-gray-300 rounded-lg'
               placeholder="Tu correo electrónico"
+              value={formData.correo_electronico}
+              onChange={handleChange}
               required
             />
           </div>
           <div>
-            <label htmlFor="message" className='block text-gray-700 mb-2'>Mensaje</label>
+            <label htmlFor="mensaje" className='block text-gray-700 mb-2'>Mensaje</label>
             <textarea 
-              id="message" 
+              id="mensaje" 
               rows="4" 
               className='w-full p-3 border border-gray-300 rounded-lg'
               placeholder="Tu mensaje"
+              value={formData.mensaje}
+              onChange={handleChange}
               required
             ></textarea>
           </div>
