@@ -24,6 +24,7 @@ export default function PaginaPrincipal() {
             <span onClick={toggleThemeIcons} style={{ marginLeft: '5px', cursor: 'pointer' }}>
               <i className='bx bx-chevron-down'></i>
             </span>
+      
             {themeVisible && (
               <div className='theme-icons'>
                 <i className='bx bxs-sun' style={{ fontSize: '20px', marginLeft: '10px' }}></i>
@@ -31,7 +32,9 @@ export default function PaginaPrincipal() {
               </div>
             )}
           </li>
+
         </ul>
+        
         <div className='salir' onClick={() => navigate("/login")}>
           <i className='bx bx-exit'></i>
           <p>Salir</p>

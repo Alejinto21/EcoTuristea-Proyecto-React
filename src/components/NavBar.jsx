@@ -12,7 +12,7 @@ export default function NavBar() {
                 <li className='sobreNosotros2' onClick={() => navigate("/sobreNosotros")}>Sobre Nosotros</li>
                 <li className='Tema3'>Tema</li>
             </ul>
-            <div className='salir' onClick={() => navigate("/login")}>
+            <div className='salir'>
                 <i className='bx bx-exit'></i>
                 <p>Salir</p>
             </div>

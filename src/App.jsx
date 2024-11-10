@@ -14,6 +14,8 @@ import JardinBotanico from './pages/JardinBotanico';
 import PlazaBotero from './pages/PlazaBotero';
 import CerroDeLasTresCruces from './pages/CerroDeLasTresCruces';
 import CuevaDelEsplendor from './pages/CuevaEsplendor';
+import PueblitoPaisa from './pages/Pueblito';
+import Planetario from './pages/Planetario';
 
 function App() {
   return (
@@ -31,6 +33,8 @@ function App() {
         <Route path='/plazaBotero' element={<PlazaBotero/>}/>
         <Route path='/cerro' element={<CerroDeLasTresCruces/>}/>
         <Route path='/cueva' element={<CuevaDelEsplendor/>}/>
+        <Route path='/Pueblito' element={<PueblitoPaisa/>}/>
+        <Route path='/Planetario' element={<Planetario/>}/>
       </Routes>
   );
 }

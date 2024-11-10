@@ -11,6 +11,9 @@ import PlazaBotero from '../assets/Plaza-Botero.webp';
 import Cerro from '../assets/Cerro.jpeg';
 import Cueva from '../assets/Cueva.webp';
 import { useNavigate } from 'react-router-dom';
+import PueblitoPaisa from '../assets/imgPueblito.jpg'; // Asegúrate de que la ruta sea correcta
+import Planetario from '../assets/Planetario.jpg'; // Ajusta la ruta según la ubicación de tu imagen
+
 
 export default function ExploraMasSitios() {
   const [searchVisible, setSearchVisible] = useState(false);
@@ -141,17 +144,37 @@ export default function ExploraMasSitios() {
             </div>
           </div>
 
-          <div className='card'>
-            <img className='imgCueva' src={Cueva} alt="" />
-            <h1 className='cueva'>Cueva del Esplendor</h1>
-            <p className='desCueva'>La Cueva del Esplendor es una impresionante formación natural en Colombia, 
-              famosa por sus aguas cristalinas y su belleza escénica.</p>
-            <div className='btnCueva'>
-              <button className='masInfoCueva' onClick={() => navigate('/cueva')}>Más Información</button>
+            <div className='card'>
+              <img className='imgCueva' src={Cueva} alt="" />
+              <h1 className='cueva'>Cueva del Esplendor</h1>
+              <p className='desCueva'>La Cueva del Esplendor es una impresionante formación natural en Colombia, 
+                famosa por sus aguas cristalinas y su belleza escénica.</p>
+              <div className='btnCueva'>
+                <button className='masInfoCueva' onClick={() => navigate('/cueva')}>Más Información</button>
+              </div>
             </div>
+
+          <div className='card'>
+            <img className='imgPueblito' src={PueblitoPaisa} alt="" />
+            <h1 className='pueblito'>Pueblito Paisa</h1>
+            <p className='desPueblito'>El Pueblito Paisa es una encantadora recreación de la arquitectura antioqueña, 
+              situada en la cima del cerro Nutibara.</p>
+          <div className='btnPueblito'>
+            <button className='masInfoPueblito' onClick={() => navigate('/Pueblito')}>Más Información</button>
           </div>
         </div>
+
+        <div className='card'>
+          <img className='imgPlanetario' src={Planetario} alt="" /> {/* Asegúrate de importar la imagen correctamente */}
+          <h1 className='planetario'>Planetario de Medellín</h1>
+          <p className='desPlanetario'>El Planetario de Medellín es un espacio dedicado a la divulgación científica, donde puedes explorar el universo a través de exhibiciones interactivas.</p>
+          <div className='btnPlanetario'>
+          <button className='masInfoPlanetario' onClick={() => navigate('/planetario')}>Más Información</button>
+        </div>
+      </div>
+        </div>  
       </section>
+      <a href="#" className='volver'>Volver al Inicio</a>
 
       <footer className='footer'>
         <p>© 2024 EcoTuristea. Todos los derechos reservados.</p>
