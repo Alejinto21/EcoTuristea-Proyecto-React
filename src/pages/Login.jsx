@@ -9,9 +9,9 @@ import { FaEye, FaEyeSlash } from 'react-icons/fa'; // Importar iconos
 
 export default function Login() {
   const [id_usuario, setId_usuario] = useState('');
-  const [contraseña, setContraseña] = useState('');
+  const [password, setpassword] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [showPassword, setShowPassword] = useState(false); // Estado para mostrar/ocultar la contraseña
+  const [showPassword, setShowPassword] = useState(false); // Estado para mostrar/ocultar la password
   const navigate = useNavigate();
 
   // Función para manejar el envío del formulario
@@ -19,7 +19,7 @@ export default function Login() {
     event.preventDefault(); // Previene el comportamiento por defecto del formulario
 
     // Realiza la solicitud de inicio de sesión
-    axios.post('http://localhost:3000/api/users/login', { id_usuario, contraseña }) // Asegurarse de enviar la contraseña en texto plano
+    axios.post('http://localhost:3000/api/users/login', { id_usuario, password }) // Asegurarse de enviar la password en texto plano
       .then((res) => {
         console.log('Inicio de sesión exitoso:', res);
 
@@ -51,13 +51,13 @@ export default function Login() {
     setIsModalOpen(!isModalOpen);
   };
 
-  // Función para alternar mostrar/ocultar la contraseña
+  // Función para alternar mostrar/ocultar la password
   const toggleShowPassword = () => {
     setShowPassword(!showPassword);
   };
 
   const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  
 
   return (
     <div className='flex min-h-screen'>
@@ -86,23 +86,23 @@ export default function Login() {
                 />
               </div>
               <div>
-                <label htmlFor="password" className='block text-gray-700 text-lg mb-2'>Contraseña</label> 
+                <label htmlFor="password" className='block text-gray-700 text-lg mb-2'>password</label> 
                 <div className='relative'>
                   <input 
                     type={showPassword ? "text" : "password"} 
                     id="password" 
                     className='w-full p-2 border border-gray-300 rounded-lg text-lg' 
-                    placeholder="Ingresar contraseña"
+                    placeholder="Ingresar password"
                     required
-                    value={contraseña}
-                    onChange={(e) => setContraseña(e.target.value)} // Actualiza el estado cuando cambia el valor de entrada
+                    value={password}
+                    onChange={(e) => setpassword(e.target.value)} // Actualiza el estado cuando cambia el valor de entrada
                   />
                   <div className='absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer' onClick={toggleShowPassword}>
                     {showPassword ? <FaEyeSlash /> : <FaEye />}
                   </div>
                 </div>
               </div>
-              <p className='text-xs text-right cursor-pointer' onClick={handleModalToggle}>¿Olvidaste la contraseña?</p>
+              <p className='text-xs text-right cursor-pointer' onClick={handleModalToggle}>¿Olvidaste la password?</p>
               <button className="col-span-2 px-6 py-2 bg-[#2b9e4e] text-white rounded-lg shadow-md hover:bg-[#66cc75] hover:text-[#212121] hover:font-bold hover:shadow-md hover:shadow-[#66cc75] transition-all duration-300 ease-in-out text-sm w-full h-10"
                   type="submit"               
               >
@@ -126,8 +126,8 @@ export default function Login() {
       {isModalOpen && (
         <div className='fixed inset-0 flex items-center justify-center bg-black bg-opacity-50'>
           <div className='bg-white p-6 rounded-lg shadow-lg max-w-sm w-full'>
-            <h2 className='text-lg font-bold mb-4'>Recuperar Contraseña</h2> 
-            <p className='mb-4'>Ingresa tu correo electrónico para recibir instrucciones sobre cómo recuperar tu contraseña.</p>
+            <h2 className='text-lg font-bold mb-4'>Recuperar password</h2> 
+            <p className='mb-4'>Ingresa tu correo electrónico para recibir instrucciones sobre cómo recuperar tu password.</p>
             <input
               type="email"
               className='w-full p-2 border border-gray-300 rounded-lg mb-4'

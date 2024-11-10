@@ -3,7 +3,7 @@ import Swal from 'sweetalert2';
 import login from '../assets/login.jpeg';
 import logo from '../assets/logo.png';
 import { useNavigate } from 'react-router-dom';
-import { registerUser } from '../services/api'; // Importa la función desde api.js
+import { registerUser } from '../services/api';
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -11,7 +11,7 @@ const Register = () => {
     first_name: '',
     last_name: '',
     country: '',
-    contraseña: ''
+    password: ''  // Cambiado de "contraseña" a "password"
   });
   const navigate = useNavigate();
 
@@ -24,8 +24,7 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // Validaciones
-    if (!formData.username || !formData.name || !formData.surname || !formData.country || !formData.password) {
+    if (!formData.id_usuario || !formData.first_name || !formData.last_name || !formData.country || !formData.password) {
       Swal.fire({
         title: 'Error',
         text: 'Todos los campos son obligatorios.',
@@ -51,7 +50,7 @@ const Register = () => {
         icon: 'success',
         confirmButtonText: 'Aceptar'
       }).then(() => {
-        navigate('/login'); // Redirigir a la página de login
+        navigate('/login');
       });
     } catch (error) {
       Swal.fire({
@@ -72,7 +71,7 @@ const Register = () => {
       </nav>
 
         <div className='flex-1 flex items-center justify-center bg-green- p-2'>
-          <div className='max-w-lg w-full px-8'> {/* Aumentamos el ancho máximo y añadimos padding horizontal */}
+          <div className='max-w-lg w-full px-8'>
             <h2 className='text-2xl font-bold text-gray-800 mb-3 text-center'>Regístrate</h2>
             <p className='mb-3 text-slate-400 text-center text-sm'>Bienvenido, para continuar digita tus credenciales</p>
             <form className='grid grid-cols-2 gap-4' onSubmit={handleSubmit}>
@@ -125,14 +124,14 @@ const Register = () => {
                 />
               </div>
               <div className='col-span-2'>
-                <label htmlFor="contraseña" className='block text-gray-700 text-lg mb-1'>Contraseña</label>
+                <label htmlFor="password" className='block text-gray-700 text-lg mb-1'>Contraseña</label>
                 <input
                   type="password"
-                  name="contraseña"
+                  name="password"  // Cambiado de "contraseña" a "password"
                   className='w-full p-1 border border-gray-300 rounded-lg text-sm'
                   placeholder="*********"
                   required
-                  value={formData.contraseña}
+                  value={formData.password}
                   onChange={handleChange}
                 />
               </div>
