@@ -11,7 +11,8 @@ const Register = () => {
     first_name: '',
     last_name: '',
     country: '',
-    password: ''  // Cambiado de "contraseña" a "password"
+    email: '',
+    password: ''  
   });
   const navigate = useNavigate();
 
@@ -24,7 +25,7 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!formData.id_usuario || !formData.first_name || !formData.last_name || !formData.country || !formData.password) {
+    if (!formData.id_usuario || !formData.first_name || !formData.last_name || !formData.country || !formData.email || !formData.password) {
       Swal.fire({
         title: 'Error',
         text: 'Todos los campos son obligatorios.',
@@ -64,21 +65,22 @@ const Register = () => {
 
   return (
     <div className='flex min-h-screen overflow-hidden'>
-      <div className='w-1/2 flex flex-col'>
-      <nav className="bg-slate-100 text-black p-2 w-full fixed top-0 left-0 flex items-center">
-        <img src={logo} className="w-8 h-8 rounded-full mr-2" alt="Logo" />
-        <h1 className="text-xl font-semibold">EcoTuristea</h1>
-      </nav>
+      <div className='w-full lg:w-1/2 flex flex-col'>
+        <nav className="bg-slate-100 text-black p-2 w-full fixed top-0 left-0 flex items-center">
+          <img src={logo} className="w-8 h-8 rounded-full mr-2" alt="Logo" />
+          <h1 className="text-xl font-semibold">EcoTuristea</h1>
+        </nav>
 
         <div className='flex-1 flex items-center justify-center bg-green- p-2'>
           <div className='max-w-lg w-full px-8'>
             <h2 className='text-2xl font-bold text-gray-800 mb-3 text-center'>Regístrate</h2>
             <p className='mb-3 text-slate-400 text-center text-sm'>Bienvenido, para continuar digita tus credenciales</p>
-            <form className='grid grid-cols-2 gap-4' onSubmit={handleSubmit}>
-              <div className='col-span-2'>
+            <form className='grid grid-cols-1 lg:grid-cols-2 gap-4' onSubmit={handleSubmit}>
+              <div>
                 <label htmlFor="id_usuario" className='block text-gray-700 text-lg mb-1'>Id Usuario</label>
                 <input
                   type="text"
+                  id="id_usuario"
                   name="id_usuario"
                   className='w-full p-1 border border-gray-300 rounded-lg text-sm'
                   placeholder="Ingresar ID Usuario"
@@ -91,6 +93,7 @@ const Register = () => {
                 <label htmlFor="first_name" className='block text-gray-700 text-lg mb-1'>Nombre</label>
                 <input
                   type="text"
+                  id="first_name"
                   name="first_name"
                   className='w-full p-1 border border-gray-300 rounded-lg text-sm'
                   placeholder="Ingresar Nombre"
@@ -103,6 +106,7 @@ const Register = () => {
                 <label htmlFor="last_name" className='block text-gray-700 text-lg mb-1'>Apellido</label>
                 <input
                   type="text"
+                  id="last_name"
                   name="last_name"
                   className='w-full p-1 border border-gray-300 rounded-lg text-sm'
                   placeholder="Ingresar Apellido"
@@ -111,10 +115,11 @@ const Register = () => {
                   onChange={handleChange}
                 />
               </div>
-              <div className='col-span-2'>
+              <div>
                 <label htmlFor="country" className='block text-gray-700 text-lg mb-1'>País</label>
                 <input
                   type="text"
+                  id="country"
                   name="country"
                   className='w-full p-1 border border-gray-300 rounded-lg text-sm'
                   placeholder="Ingresar País"
@@ -123,11 +128,25 @@ const Register = () => {
                   onChange={handleChange}
                 />
               </div>
-              <div className='col-span-2'>
+              <div className='col-span-1 lg:col-span-2'>
+                <label htmlFor="email" className='block text-gray-700 text-lg mb-1'>Correo Electrónico</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  className='w-full p-1 border border-gray-300 rounded-lg text-sm'
+                  placeholder="Ingresar Correo Electrónico"
+                  required
+                  value={formData.email}
+                  onChange={handleChange}
+                />
+              </div>
+              <div className='col-span-1 lg:col-span-2'>
                 <label htmlFor="password" className='block text-gray-700 text-lg mb-1'>Contraseña</label>
                 <input
                   type="password"
-                  name="password"  // Cambiado de "contraseña" a "password"
+                  id="password"
+                  name="password" 
                   className='w-full p-1 border border-gray-300 rounded-lg text-sm'
                   placeholder="*********"
                   required
@@ -135,12 +154,12 @@ const Register = () => {
                   onChange={handleChange}
                 />
               </div>
-              <button className="col-span-2 px-6 py-2 bg-[#2b9e4e] text-white rounded-lg shadow-md hover:bg-[#66cc75] hover:text-[#212121] hover:font-bold hover:shadow-md hover:shadow-[#66cc75] transition-all duration-300 ease-in-out text-sm w-full h-10"
+              <button className="col-span-1 lg:col-span-2 px-6 py-2 bg-[#2b9e4e] text-white rounded-lg shadow-md hover:bg-[#66cc75] hover:text-[#212121] hover:font-bold hover:shadow-md hover:shadow-[#66cc75] transition-all duration-300 ease-in-out text-sm w-full h-10"
                   type="submit"
                 >
                   Regístrate
                 </button>
-              <div className='col-span-2 flex items-center justify-center mt-2'>
+              <div className='col-span-1 lg:col-span-2 flex items-center justify-center mt-2'>
                 <p className='text-xs flex justify-center mr-1 text-gray-500 cursor-default'>¿Ya tienes cuenta?</p>
                 <p className='text-xs text-blue-900 cursor-pointer' onClick={() => navigate("/login")}>Inicia sesión</p>
               </div>
@@ -148,11 +167,11 @@ const Register = () => {
           </div>
         </div>
       </div>
-      <div className='flex items-center justify-center h-screen'>
+      <div className='hidden lg:flex items-center justify-center w-1/2 h-screen'>
         <img
           src={login}
           alt="Imagen descriptiva"
-          className='w-full h-[80vh] object-cover object-center  rounded-l-3xl shadow-lg'  
+          className='w-full h-[80vh] object-cover object-center rounded-l-3xl shadow-lg'  
         />
       </div> 
     </div>
