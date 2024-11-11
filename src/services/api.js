@@ -21,3 +21,15 @@ export const loginUser = async (credentials) => {
         throw error;
     }
 };
+
+// Verificación de preguntas de seguridad
+export const verifySecurityQuestions = async (data) => {
+  const response = await axios.post('/api/users/verify-security-questions', data);
+  return response.data;
+};
+
+// Actualización de la nueva contraseña
+export const resetPassword = async (data) => {
+  const response = await axios.post('/api/users/reset-password', data);
+  return response.data;
+};

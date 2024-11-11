@@ -16,6 +16,7 @@ import CerroDeLasTresCruces from './pages/CerroDeLasTresCruces';
 import CuevaDelEsplendor from './pages/CuevaEsplendor';
 import PueblitoPaisa from './pages/Pueblito';
 import Planetario from './pages/Planetario';
+import PasswordRecovery from './components/PasswordRecovery';
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
         <Route path='/cueva' element={<CuevaDelEsplendor/>}/>
         <Route path='/Pueblito' element={<PueblitoPaisa/>}/>
         <Route path='/Planetario' element={<Planetario/>}/>
+        <Route path="/recuperacion-contrasena" element={<PasswordRecovery />} />
       </Routes>
   );
 }
