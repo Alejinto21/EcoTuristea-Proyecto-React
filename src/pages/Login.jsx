@@ -90,7 +90,7 @@ export default function Login() {
   };
 
   return (
-    <div className='flex min-h-screen'>
+    <div className='flex min-h-screen md:justify-center lg:justify-start'>
       <div className='w-full md:w-1/2 flex flex-col justify-center items-center'>
         <nav className="bg-slate-100 text-black p-4 w-full fixed top-0 left-0 flex items-center">
           <img src={logo} className="w-10 rounded-full mr-4" alt="Logo" />
@@ -149,7 +149,7 @@ export default function Login() {
         <img
           src={login}
           alt="Imagen descriptiva"
-          className='w-full h-[74vh] object-cover object-center rounded-l-3xl shadow-lg'  
+          className='w-full h-[74vh] object-cover object-center rounded-l-3xl hidden sm md lg:block shadow-lg'  
         />
       </div>
       {isModalOpen && (
