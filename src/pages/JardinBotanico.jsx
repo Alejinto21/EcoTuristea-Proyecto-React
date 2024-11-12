@@ -10,6 +10,7 @@ export default function JardinBotanico() {
   const [currentImage, setCurrentImage] = useState(jardinBotanico);
   const [rating, setRating] = useState(0);
   const images = [jardinBotanico, plantas];
+  const entity_Id = 'Jardín Botánico';
 
   return (
     <div className='bg-gray-100 min-h-screen p-6'>
@@ -52,7 +53,7 @@ export default function JardinBotanico() {
         </div>
       </section>
 
-      <Rating rating={rating} setRating={setRating} />
+      <Rating entityId={entity_Id} userId="000000" rating={rating} setRating={setRating} />
 
       <ContactForm />  
     </div>

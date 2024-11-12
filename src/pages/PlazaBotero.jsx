@@ -10,6 +10,7 @@ export default function PlazaBotero() {
   const [currentImage, setCurrentImage] = useState(plazaBotero);
   const [rating, setRating] = useState(0);
   const images = [plazaBotero, esculturas];
+  const entity_Id="Plaza de Botero";
 
   return (
     <div className='bg-gray-100 min-h-screen p-6'>
@@ -53,7 +54,7 @@ export default function PlazaBotero() {
         </div>
       </section>
 
-      <Rating rating={rating} setRating={setRating} />
+      <Rating entityId={entity_Id} userId="000000" rating={rating} setRating={setRating} />
 
       <ContactForm />  
     </div>

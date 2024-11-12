@@ -10,6 +10,7 @@ import ContactForm from '../components/ContactForm';
 export default function MuseoElCastillo() {
   const [currentImage, setCurrentImage] = useState(museoElCastillo);
   const [rating, setRating] = useState(0); // Define reaiting
+  const entity_id="museoElCastillo";
   const images = [museoElCastillo, interiorMuseo]; // Array de imageness
 
   return (
@@ -46,7 +47,7 @@ export default function MuseoElCastillo() {
         </div>
       </section>
       
-      <Rating rating={rating} setRating={setRating} />
+      <Rating entityId={entity_id} userId="000000" rating={rating} setRating={setRating}   />
 
       <ContactForm />
     </div>

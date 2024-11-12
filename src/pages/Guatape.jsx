@@ -11,6 +11,7 @@ export default function Guatape() {
   const [currentImage, setCurrentImage] = useState(guatape);
   const [rating, setRating] = useState(0); // Define rating state
   const navigate = useNavigate();
+  const entity_Id="Guatapé";
 
   const images = [guatape, represaGuatape]; // Array of images
   const showImage = (index) => setCurrentImage(images[index]);
@@ -56,7 +57,7 @@ export default function Guatape() {
         </div>
       </section>
 
-      <Rating rating={rating} setRating={setRating} />
+      <Rating entityId={entity_Id} userId="000000" rating={rating} setRating={setRating} />
 
       <ContactForm /> 
     </div>

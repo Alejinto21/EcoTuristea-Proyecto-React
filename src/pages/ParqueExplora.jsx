@@ -10,6 +10,7 @@ import ContactForm from '../components/ContactForm';
 export default function ParqueExplora() {
   const [currentImage, setCurrentImage] = useState(Acuario);
   const [rating, setRating] = useState(0);
+  const entity_Id="Parque Explora";
   const images = [Acuario, Pez1]; // Array of images
 
   return (
@@ -54,7 +55,7 @@ export default function ParqueExplora() {
         </div>
       </section>
 
-      <Rating rating={rating} setRating={setRating} />
+      <Rating entityId={entity_Id} userId="000000" rating={rating} setRating={setRating} />
       
       <ContactForm />
     </div>

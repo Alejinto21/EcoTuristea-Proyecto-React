@@ -9,7 +9,8 @@ import ContactForm from '../components/ContactForm';
 export default function Planetario() {
   const [currentImage, setCurrentImage] = useState(planetario);
   const [rating, setRating] = useState(0); 
-  const images = [planetario, telescopio]; 
+  const images = [planetario, telescopio];
+  const entity_Id="Planetario de Medellín";
   
   return (
     <div className='bg-gray-100 min-h-screen p-6'>
@@ -45,7 +46,7 @@ export default function Planetario() {
         </div>
       </section>
 
-      <Rating rating={rating} setRating={setRating} />
+      <Rating entityId={entity_Id} userId="000000" rating={rating} setRating={setRating} />
 
       <ContactForm />
     </div>
