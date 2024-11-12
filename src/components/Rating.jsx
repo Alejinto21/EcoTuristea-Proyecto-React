@@ -1,7 +1,9 @@
 import React from 'react';
 import { saveRating } from '../services/api';
 
-export default function Rating({ userId, entityId, rating, setRating }) {
+export default function Rating({ userId='012', entityId='456', rating, setRating }) {
+    
+
     const handleRatingClick = async (newRating) => {
         setRating(newRating);
         try {
@@ -12,6 +14,9 @@ export default function Rating({ userId, entityId, rating, setRating }) {
             alert('Hubo un problema al guardar la calificación');
         }
     };
+
+    console.log('userId:', userId);
+    console.log('entityId:', entityId);
 
 
     return (

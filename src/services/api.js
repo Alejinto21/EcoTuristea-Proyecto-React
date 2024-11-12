@@ -45,14 +45,17 @@ export const resetPassword = async (data) => {
   return response.data;
 };
 
-export async function saveRating(userId, entityId, rating) {
-  const response = await fetch('/api/ratings', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ userId, entityId, rating })
-  });
-
-  if (!response.ok) {
-      throw new Error('Error al guardar la calificación');
+export const saveRating = async (userId, entityId, rating) => {
+  console.log('saveRating -> userId:', userId, 'entityId:', entityId, 'rating:', rating);
+  try {
+      const response = await axios.post(`${API_URL}/ratings`, {
+          userId,
+          entityId,
+          rating,
+      });
+      return response.data;
+  } catch (error) {
+      console.error('Error al guardar la calificación:', error);
+      throw error;
   }
 };
