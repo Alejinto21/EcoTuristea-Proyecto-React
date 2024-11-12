@@ -44,3 +44,15 @@ export const resetPassword = async (data) => {
   const response = await axios.post('/api/users/reset-password', data);
   return response.data;
 };
+
+export async function saveRating(userId, entityId, rating) {
+  const response = await fetch('/api/ratings', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ userId, entityId, rating })
+  });
+
+  if (!response.ok) {
+      throw new Error('Error al guardar la calificación');
+  }
+};
