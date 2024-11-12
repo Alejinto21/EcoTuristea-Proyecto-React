@@ -81,8 +81,8 @@ const Register = () => {
     <div className='flex min-h-screen overflow-hidden'>
       <div className='w-full lg:w-1/2 flex flex-col '>
         <nav className="text-black p-1 w-full fixed top-0 left-0 flex items-center rounded-xl ">
-          <img src={logo} className="w-10 h-10 rounded-full mr-2" alt="Logo" />
-          <h1 className="text-xl font-semibold ">EcoTuristea</h1>
+          <img src={logo} className="w-10 h-10 rounded-full mr-2 hidden sm md:block" alt="Logo" />
+          <h1 className="text-xl font-semibold hidden sm md:block ">EcoTuristea</h1>
         </nav>
 
         <div className='w-full h-[84vh] flex-1 flex items-center justify-center p-1 '>

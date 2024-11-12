@@ -92,7 +92,7 @@ export default function Login() {
   return (
     <div className='flex min-h-screen md:justify-center lg:justify-start'>
       <div className='w-full md:w-1/2 flex flex-col justify-center items-center'>
-        <nav className="bg-slate-100 text-black p-4 w-full fixed top-0 left-0 flex items-center">
+        <nav className="bg-slate-100 text-black p-4 w-full fixed top-0 left-0 flex items-center ">
           <img src={logo} className="w-10 rounded-full mr-4" alt="Logo" />
           <h1 className="text-2xl font-semibold">EcoTuristea</h1>
         </nav>
