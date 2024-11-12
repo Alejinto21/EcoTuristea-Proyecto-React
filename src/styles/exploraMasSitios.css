@@ -9,14 +9,22 @@
 
 .title {
     display: flex;
-    justify-content: center;
+    justify-content: center; /* Espacio entre el título y la lupa */
     align-items: center;
+    width: 100%;
+    padding: 10px 0; /* Asegúrate de que el contenedor tenga algo de espacio */
+}
+
+.title i.bx-search {
+    font-size: 30px; /* Tamaño del ícono */
+    margin-left: 20px; /* Agrega margen a la izquierda para separar más del texto */
+    cursor: pointer;
 }
 
 .searchInputs {
     display: flex;
     justify-content: center;
-    padding-top: 10px;
+    padding-bottom: 20px;
 }
 
 .searchInput {
@@ -25,7 +33,7 @@
     height: 30px;
     padding-left: 12px;
     border-radius: 30px;
-    border: 1px solid #ccc; 
+    border: 1px solid #ccc;
 }
 
 .navE {
@@ -98,15 +106,15 @@ ul,
 .medellin {
     width: 100%;
     height: 50vh;
-    object-fit:cover;
+    object-fit: cover;
 }
 
 .sitios {
     font-size: 30px;
-    display: flex;
-    justify-content: center;
-    padding: 10px 0;
     font-weight: 500;
+    text-align: center;
+    margin: 0; /* Elimina márgenes que puedan interferir */
+    padding: 10px 0; /* Asegura el espaciado adecuado */
 }
 
 .card {
@@ -192,7 +200,7 @@ ul,
 }
 
 .card:hover {
-    transform: translateY(-5%);
+    transform: translateY(-2%);
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
 }
 
@@ -223,10 +231,7 @@ ul,
         margin: 10px 0;
     }
 
-    .navE {
-        flex-direction: column;
-        align-items: center;
-    }
+   
 
     .searchInput {
         width: 90%;
@@ -257,11 +262,13 @@ ul,
     display: inline;
     margin: 0;
 }
-.volver{
+
+.volver {
     display: flex;
     justify-content: flex-end;
-    margin-right: 20px;   
+    margin-right: 20px;
 }
-.volver:hover{
+
+.volver:hover {
     color: gray;
 }
