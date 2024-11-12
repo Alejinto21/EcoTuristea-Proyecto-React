@@ -9,8 +9,8 @@ import ContactForm from '../components/ContactForm';
 
 export default function MuseoElCastillo() {
   const [currentImage, setCurrentImage] = useState(museoElCastillo);
-  const [rating, setRating] = useState(0); // Define reaiting
-  const images = [museoElCastillo, interiorMuseo]; // Array de imageness
+  const [rating, setRating] = useState(0);
+  const images = [museoElCastillo, interiorMuseo]; 
 
   return (
     <div className='bg-gray-100 min-h-screen p-6'>

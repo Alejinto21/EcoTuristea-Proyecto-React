@@ -11,8 +11,8 @@ import PlazaBotero from '../assets/Plaza-Botero.webp';
 import Cerro from '../assets/Cerro.jpeg';
 import Cueva from '../assets/Cueva.webp';
 import { useNavigate } from 'react-router-dom';
-import PueblitoPaisa from '../assets/imgPueblito.jpg'; // Asegúrate de que la ruta sea correcta
-import Planetario from '../assets/Planetario.jpg'; // Ajusta la ruta según la ubicación de tu imagen
+import PueblitoPaisa from '../assets/imgPueblito.jpg'; 
+import Planetario from '../assets/Planetario.jpg'; 
 import NavBar from '../components/NavBar';
 
 
@@ -144,7 +144,7 @@ export default function ExploraMasSitios() {
         </div>
 
         <div className='card'>
-          <img className='imgPlanetario' src={Planetario} alt="" /> {/* Asegúrate de importar la imagen correctamente */}
+          <img className='imgPlanetario' src={Planetario} alt="" />
           <h1 className='planetario'>Planetario de Medellín</h1>
           <p className='desPlanetario'>El Planetario de Medellín es un espacio dedicado a la divulgación científica, donde puedes explorar el universo a través de exhibiciones interactivas.</p>
           <div className='btnPlanetario'>

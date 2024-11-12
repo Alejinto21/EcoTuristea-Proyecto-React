@@ -9,10 +9,10 @@ import ContactForm from '../components/ContactForm';
 
 export default function Guatape() {
   const [currentImage, setCurrentImage] = useState(guatape);
-  const [rating, setRating] = useState(0); // Define rating state
+  const [rating, setRating] = useState(0);
   const navigate = useNavigate();
 
-  const images = [guatape, represaGuatape]; // Array of images
+  const images = [guatape, represaGuatape]; 
   const showImage = (index) => setCurrentImage(images[index]);
 
   return (
