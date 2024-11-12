@@ -9,6 +9,7 @@ export default function CerroTresCruces() {
   const [rating, setRating] = useState(0);
   const [currentImage, setCurrentImage] = useState(cerroTresCruces);
   const images = [cerroTresCruces, vistaDesdeCerro];
+  const entity_Id = 'Cerro de las tres cruces';
 
   return (
     <div className='bg-gray-100 min-h-screen p-6'>
@@ -49,7 +50,7 @@ export default function CerroTresCruces() {
         </div>
       </section>
 
-      <Rating rating={rating} setRating={setRating} />
+      <Rating entityId={entity_Id} userId="000000"rating={rating} setRating={setRating} />
 
       <ContactForm />
     </div>

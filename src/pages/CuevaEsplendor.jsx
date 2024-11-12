@@ -11,6 +11,7 @@ export default function CuevaDelEsplendor() {
   const [currentImage, setCurrentImage] = useState(cuevaEsplendor);
   const [rating, setRating] = useState(0);
   const navigate = useNavigate();
+  const entity_Id="Cueva del Esplendor";
 
   const images = [cuevaEsplendor, interiorCueva];
   const showImage = (index) => setCurrentImage(images[index]);
@@ -54,7 +55,7 @@ export default function CuevaDelEsplendor() {
         </div>
       </section>
 
-      <Rating rating={rating} setRating={setRating} />
+      <Rating entityId={entity_Id} userId="000000" rating={rating} setRating={setRating} />
 
       <ContactForm />  
     </div>

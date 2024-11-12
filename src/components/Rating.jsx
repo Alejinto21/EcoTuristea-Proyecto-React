@@ -1,7 +1,7 @@
 import React from 'react';
 import { saveRating } from '../services/api';
 
-export default function Rating({ userId='012', entityId='456', rating, setRating }) {
+export default function Rating({ userId, entityId, rating, setRating }) {
     
 
     const handleRatingClick = async (newRating) => {
