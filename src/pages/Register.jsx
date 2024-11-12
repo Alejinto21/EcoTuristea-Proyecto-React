@@ -53,6 +53,8 @@ const Register = () => {
 
     try {
       const response = await registerUser(formData);
+      console.log("Código de estado de la respuesta:", response.status);  // Verifica el código de estado
+    
       Swal.fire({
         title: 'Registro exitoso',
         text: response.message,
@@ -62,14 +64,18 @@ const Register = () => {
         navigate('/login');
       });
     } catch (error) {
+      console.error("Error capturado:", error);
+    
+      const errorMessage = error.message || 'Algo salió mal';
+    
       Swal.fire({
         title: 'Error',
-        text: error.response ? error.response.data.message : 'Algo salió mal',
+        text: errorMessage,
         icon: 'error',
         confirmButtonText: 'Aceptar'
       });
-    }
-  };
+    }    
+  }
 
   return (
     <div className='flex min-h-screen overflow-hidden'>

@@ -3,12 +3,14 @@ import axios from 'axios';
 const API_URL = 'http://localhost:3000/api'; // Cambia esto si tu backend usa otro puerto////////////rutaaa
 
 export const registerUser = async (userData) => {
-    try {
-      const response = await axios.post('http://localhost:3000/api/users/register', userData);//cambiar ruta si hay problema con las rutas      return response.data;
-    } catch (error) {
-      throw error;
-    }
-  };
+  try {
+    const response = await axios.post('http://localhost:3000/api/users/register', userData);
+    return response; // Asegúrate de devolver la respuesta completa, no solo response.data
+  } catch (error) {
+    throw error;
+  }
+};
+
 
 export const loginUser = async (credentials) => {
     try {
