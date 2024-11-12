@@ -10,6 +10,7 @@ export default function PueblitoPaisa() {
   const [currentImage, setCurrentImage] = useState(pueblitoPaisa);
   const [rating, setRating] = useState(0);
   const images = [pueblitoPaisa,plazaPueblito];
+  const entity_Id= "Pueblito Paisa"
 
   return (
     <div className='bg-gray-100 min-h-screen p-6'>
@@ -48,7 +49,7 @@ export default function PueblitoPaisa() {
         </div>
       </section>
 
-      <Rating rating={rating} setRating={setRating} />
+      <Rating entityId={entity_Id} userId="000000" rating={rating} setRating={setRating} />
 
       <ContactForm />
     </div>
